@@ -1,1 +1,1 @@
-:host{color:#2e3638;font-weight:bold}::content a,::content .phone{margin-left:35px}::content .phone{color:#dd6c60;font-size:22px}section{height:60px;margin:0 auto;width:1100px}
+:host{color:#2e3638;font-weight:bold}::content a,::content .phone{margin-left:35px}::content a:hover{color:#dd6c60}::content .phone{color:#dd6c60;font-size:22px}section{height:60px;margin:0 auto;width:1100px}
