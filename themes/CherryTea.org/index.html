@@ -1,24 +1,35 @@
+<?php
+/**
+ * @package   CherryTea.org
+ * @category  themes
+ * @author    Nazar Mokrynskyi <nazar@mokrynskyi.com>
+ * @copyright Copyright (c) 2015, Nazar Mokrynskyi
+ * @license   MIT License, see license.txt
+ */
+namespace cs\modules\Content;
+$Content = Content::instance();
+$phone   = $Content->get('phone')['content'];
+$menu    = $Content->get('menu')['content'];
+?>
 <!doctype html>
 <!--pre_Html--><!--head-->
 <body unresolved>
 <!--pre_Body-->
 	<header is="cherrytea-header">
 		<img src="/themes/CherryTea.org/img/logo-header.png" alt="CherryTea.org">
-		<a href="/">Головна</a>
-		<a href="/Блоги">Блог</a>
-		<div class="phone">067 549 80 90</div>
+		<nav data-cs-content="menu"><?=$menu?></nav>
+		<div class="phone" data-cs-content="phone"><?=$phone?></div>
 	</header>
 <!--content-->
 	<footer is="cherrytea-footer">
 		<img src="/themes/CherryTea.org/img/logo-footer.png" alt="CherryTea.org">
-		<div class="phone">067 549 80 90</div>
+		<div class="phone" data-cs-content="phone"><?=$phone?></div>
 		<div class="social">
 			<a href="https://www.facebook.com/cherrytea.org" target="_blank">Facebook</a>
 			<a href="https://twitter.com/cherrytea_org" target="_blank">Twitter</a>
 			<a href="https://instagram.com/cherrytea_org" target="_blank">Instagram</a>
 		</div>
-		<a href="/">Головна</a>
-		<a href="/Блоги">Блог</a>
+		<nav data-cs-content="menu"><?=$menu?></nav>
 	</footer>
 <!--post_Body-->
 </body><!--post_Html-->
