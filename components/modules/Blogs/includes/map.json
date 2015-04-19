@@ -1,0 +1,10 @@
+{
+	"admin/Blogs"	: [
+		"admin.css"
+	],
+	"Blogs"			: [
+		"general.css",
+		"general.js",
+		"cs-blogs-post/index.html"
+	]
+}

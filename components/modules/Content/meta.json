@@ -1,0 +1,35 @@
+{
+	"package"      : "Content",
+	"category"     : "modules",
+	"version"      : "1.2.0+build-25",
+	"description"  : "Simple content functionality. May be used by other components or stand-alone.",
+	"author"       : "Nazar Mokrynskyi",
+	"website"      : "cleverstyle.org/cms",
+	"license"      : "MIT License",
+	"db"           : [
+		"content"
+	],
+	"db_support"   : [
+		"MySQLi"
+	],
+	"provide"      : "content",
+	"require"      : [
+		"System>=2.9",
+		"System<=3.0"
+	],
+	"optional"     : [
+		"Plupload",
+		"TinyMCE",
+		"file_upload",
+		"editor"
+	],
+	"multilingual" : [
+		"interface",
+		"content"
+	],
+	"languages"    : [
+		"English",
+		"Русский",
+		"Українська"
+	]
+}

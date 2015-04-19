@@ -1,0 +1,21 @@
+AddDefaultCharset utf-8
+Options -Indexes -Multiviews +FollowSymLinks
+IndexIgnore *.php *.pl *.cgi *.htaccess *.htpasswd
+
+RewriteEngine On
+RewriteBase /
+
+<FilesMatch ".*/.*">
+	Options -FollowSymLinks
+</FilesMatch>
+<FilesMatch "\.(css|js|gif|jpg|jpeg|png|ico|eot|ttc|ttf|svg|svgz|woff)$">
+	RewriteEngine Off
+</FilesMatch>
+<Files license.txt>
+	RewriteEngine Off
+</Files>
+#<Files Storage.php>
+#	RewriteEngine Off
+#</Files>
+
+RewriteRule .* index.php

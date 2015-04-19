@@ -1,0 +1,6 @@
+# Do not commit configuration
+config/main.json
+# Do not commit files from storage directory
+storage/*/*
+# Except .htaccess, which should be commited
+!storage/*/.htaccess
