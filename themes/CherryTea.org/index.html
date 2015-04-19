@@ -20,7 +20,27 @@ $menu    = $Content->get('menu')['content'];
 		<nav data-cs-content="menu"><?=$menu?></nav>
 		<div class="phone" data-cs-content="phone"><?=$phone?></div>
 	</header>
+<?php
+if (home_page()) {
+?>
 <!--content-->
+<?php
+} else {
+?>
+	<section class="cherrytea-page-top">
+<!--top-->
+	</section>
+	<section class="cherrytea-page">
+		<section class="cherrytea-main-content">
+<!--content-->
+		</section>
+		<aside class="cherrytea-right-blocks">
+<!--right-->
+		</aside>
+	</section>
+<?php
+}
+?>
 	<footer is="cherrytea-footer">
 		<img src="/themes/CherryTea.org/img/logo-footer.png" alt="CherryTea.org">
 		<div class="phone" data-cs-content="phone"><?=$phone?></div>

@@ -22,3 +22,16 @@ body {
 	padding : 0;
 	width   : 100%;
 }
+
+.cherrytea-page {
+	margin : 0 auto;
+	width  : $content-width;
+
+	.cherrytea-main-content {
+		width : $content-width - $side-blocks-width;
+	}
+
+	.cherrytea-right-blocks {
+		width : $side-blocks-width;
+	}
+}
