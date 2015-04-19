@@ -1,0 +1,8 @@
+{
+	"package"     : "Landing",
+	"category"    : "modules",
+	"description" : "Landing page for CherryTea.org",
+	"author"      : "Nazar Mokrynskyi",
+	"website"     : "cherrytea.org",
+	"license"     : "MIT License"
+}
