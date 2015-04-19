@@ -1,0 +1,20 @@
+<polymer-element name="cherrytea-footer" extends="footer" noscript>
+	<template>
+		<link rel="stylesheet" href="style.css">
+		<section horizontal justified layout center>
+			<a href="/">
+				<content select="img"></content>
+			</a>
+			<div>
+				<content select=".phone"></content>
+			</div>
+			<div horizontal layout center>
+				<span>Купити речі:</span>
+				<content select=".social"></content>
+			</div>
+		</section>
+		<section class="menu">
+			<content select="a"></content>
+		</section>
+	</template>
+</polymer-element>
