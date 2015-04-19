@@ -1,0 +1,8 @@
+{
+	"package"     : "CherryTea.org",
+	"category"    : "themes",
+	"description" : "Theme especially for CherryTea.org",
+	"author"      : "Nazar Mokrynskyi",
+	"website"     : "cherrytea.org",
+	"license"     : "MIT License"
+}
