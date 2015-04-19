@@ -6,7 +6,8 @@
  * @copyright Copyright (c) 2015, Nazar Mokrynskyi
  * @license   MIT License, see license.txt
  */
-namespace cs\modules\Content;
+use
+	cs\modules\Content\Content;
 $Content = Content::instance();
 $phone   = $Content->get('phone')['content'];
 $menu    = $Content->get('menu')['content'];
@@ -28,14 +29,14 @@ if (home_page()) {
 } else {
 ?>
 	<section class="cherrytea-page-top">
-<!--top-->
+<!--top_blocks-->
 	</section>
-	<section class="cherrytea-page">
+	<section class="cherrytea-page" horizontal layout>
 		<section class="cherrytea-main-content">
 <!--content-->
 		</section>
 		<aside class="cherrytea-right-blocks">
-<!--right-->
+<!--right_blocks-->
 		</aside>
 	</section>
 <?php

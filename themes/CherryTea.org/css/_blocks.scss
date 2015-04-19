@@ -1,0 +1,74 @@
+/**
+ * @package   CherryTea.org
+ * @category  themes
+ * @author    Nazar Mokrynskyi <nazar@mokrynskyi.com>
+ * @copyright Copyright (c) 2015, Nazar Mokrynskyi
+ * @license   MIT License, see license.txt
+ */
+@import "common_config";
+
+.cherrytea-i-want-to-give-things-side-block {
+	form {
+		margin-top : 55px;
+
+		h2 {
+			font-weight   : bold;
+			margin-bottom : 20px;
+		}
+
+		input {
+			background    : #fff;
+			border        : 1px solid #f7f7f7;
+			border-radius : 5px;
+			height        : 42px;
+			margin-bottom : 8px;
+			padding       : 0 18px;
+			width         : 340px;
+
+			&::-webkit-input-placeholder {
+				color : #b3b3b5;
+			}
+
+			&::-moz-placeholder {
+				color : #b3b3b5;
+			}
+
+			&:-ms-input-placeholder {
+				color : #b3b3b5;
+			}
+		}
+
+		div {
+			display : -ms-flexbox;
+			display : -webkit-flex;
+			display : flex;
+
+			input {
+				width : 130px;
+
+				&:last-child {
+					margin-left : 8px;
+					width       : 202px;
+				}
+			}
+		}
+
+		button {
+			background     : #dd6c60;
+			border         : none;
+			border-bottom  : 5px solid #ae474f;
+			border-radius  : 5px;
+			color          : #fff;
+			display        : block;
+			height         : 47px;
+			margin-left    : 145px;
+			text-transform : uppercase;
+			width          : 195px;
+
+			&:hover {
+				background          : #ae474f;
+				border-bottom-color : #dd6c60;
+			}
+		}
+	}
+}
