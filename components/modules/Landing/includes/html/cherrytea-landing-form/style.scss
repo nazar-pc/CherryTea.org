@@ -1,0 +1,114 @@
+/**
+ * @package   Landing
+ * @category  modules
+ * @author    Nazar Mokrynskyi <nazar@mokrynskyi.com>
+ * @copyright Copyright (c) 2015, Nazar Mokrynskyi
+ * @license   MIT License, see license.txt
+ */
+@import '../../../../../../themes/CherryTea.org/css/common_config';
+
+:host {
+	background  : #ffd56e;
+	color       : #2e3638;
+	font-weight : bold;
+}
+
+::content {
+	h1,
+	p {
+		text-align : center;
+	}
+
+	h1 {
+		font-size   : 37px;
+		font-weight : bold;
+		margin      : 48px 0 5px;
+	}
+
+	p {
+		color     : #fff;
+		font-size : 18px;
+		margin    : 0;
+	}
+
+	form {
+		margin-top : 55px;
+
+		h2 {
+			font-weight   : bold;
+			margin-bottom : 20px;
+		}
+
+		input {
+			border        : none;
+			border-radius : 5px;
+			height        : 42px;
+			margin-bottom : 8px;
+			padding       : 0 18px;
+			width         : 415px;
+
+			&::-webkit-input-placeholder {
+				color : #b3b3b5;
+			}
+
+			&::-moz-placeholder {
+				color : #b3b3b5;
+			}
+
+			&:-ms-input-placeholder {
+				color : #b3b3b5;
+			}
+		}
+
+		div {
+			display : -ms-flexbox;
+			display : -webkit-flex;
+			display : flex;
+
+			input {
+				width : 154px;
+
+				&:last-child {
+					margin-left : 8px;
+					width       : 253px;
+				}
+			}
+		}
+
+		button {
+			background     : #dd6c60;
+			border         : none;
+			border-bottom  : 5px solid #ae474f;
+			border-radius  : 5px;
+			color          : #fff;
+			display        : block;
+			height         : 47px;
+			margin-left    : 220px;
+			text-transform : uppercase;
+			width          : 195px;
+
+			&:hover {
+				background          : #ae474f;
+				border-bottom-color : #dd6c60;
+			}
+		}
+	}
+}
+
+section {
+	height : 545px;
+	margin : 0 auto;
+	width  : $content-width;
+
+	> div {
+		height : 430px;
+
+		&:first-child {
+			width : 415px;
+		}
+
+		&:last-child {
+			padding-top : 16px;
+		}
+	}
+}
