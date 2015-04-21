@@ -14,4 +14,4 @@ $Page = Page::instance();
 if (preg_match('/msie|trident/i', $_SERVER->user_agent)) {
 	$Page->Head .= '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">';
 }
-$Page->level['Content'] = 3;
+$Page->level['Content'] = home_page() ? 1 : 3;
