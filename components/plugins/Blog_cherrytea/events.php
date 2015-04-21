@@ -8,7 +8,9 @@
  */
 use
 	cs\Event,
-	cs\Page;
+	cs\Page,
+	cs\Route,
+	cs\modules\Blogs\Blogs;
 Event::instance()
 	->on(
 		'Blogs/latest_posts',
@@ -40,9 +42,17 @@ Event::instance()
 	->on(
 		'Blogs/post',
 		function () {
+			$path = Route::instance()->path;
+			$path = array_pop($path);
+			$id   = explode(':', $path);
+			$id   = array_pop($id);
+			$post = Blogs::instance()->get($id);
+			if (!$post) {
+				return;
+			}
 			$Page = Page::instance();
 			$Page->Top .= h::{'cherrytea-title h1'}(
-				'Блог'
+				$post['title']
 			);
 		}
 	);
