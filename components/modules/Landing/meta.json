@@ -4,5 +4,6 @@
 	"description" : "Landing page for CherryTea.org",
 	"author"      : "Nazar Mokrynskyi",
 	"website"     : "cherrytea.org",
-	"license"     : "MIT License"
+	"license"     : "MIT License",
+	"version"     : "1.0"
 }

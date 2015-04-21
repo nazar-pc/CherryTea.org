@@ -1,0 +1,11 @@
+{
+	"package"     : "Blogs_cherrytea",
+	"category"    : "plugins",
+	"description" : "Blogs customization for CherryTea.org",
+	"author"      : "Nazar Mokrynskyi",
+	"website"     : "cherrytea.org",
+	"license"     : "MIT License",
+	"provide"     : "Blogs/cherrytea",
+	"require"     : "CherryTea_common",
+	"version"     : "1.0"
+}
