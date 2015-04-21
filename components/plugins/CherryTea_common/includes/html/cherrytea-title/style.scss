@@ -1,0 +1,25 @@
+/**
+ * @package   CherryTea common
+ * @category  modules
+ * @author    Nazar Mokrynskyi <nazar@mokrynskyi.com>
+ * @copyright Copyright (c) 2015, Nazar Mokrynskyi
+ * @license   MIT License, see license.txt
+ */
+@import '../../../../../../themes/CherryTea.org/css/common_config';
+
+:host {
+	background  : #ffd46f;
+	display     : block;
+	height      : 125px;
+	padding-top : 40px;
+}
+
+::content {
+	h1 {
+		font-size   : 37px !important;
+		font-weight : bold !important;
+		margin      : 0 auto !important;
+		text-align  : center !important;
+		max-width   : $content-width;
+	}
+}

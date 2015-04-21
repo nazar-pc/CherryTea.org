@@ -1,0 +1,9 @@
+{
+	"package"     : "CherryTea_common",
+	"category"    : "plugins",
+	"description" : "Common UI elements for CherryTea.org",
+	"author"      : "Nazar Mokrynskyi",
+	"website"     : "cherrytea.org",
+	"license"     : "MIT License",
+	"provide"     : "cherrytea_common"
+}

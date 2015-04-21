@@ -14,7 +14,7 @@ Event::instance()
 		'Blogs/latest_posts',
 		function () {
 			$Page = Page::instance();
-			$Page->Top .= h::{'.cherrytea-title h1'}(
+			$Page->Top .= h::{'cherrytea-title h1'}(
 				'Блог'
 			);
 		}
@@ -23,7 +23,7 @@ Event::instance()
 		'Blogs/section',
 		function () {
 			$Page = Page::instance();
-			$Page->Top .= h::{'.cherrytea-title h1'}(
+			$Page->Top .= h::{'cherrytea-title h1'}(
 				'Блог'
 			);
 		}
@@ -32,7 +32,7 @@ Event::instance()
 		'Blogs/tag',
 		function () {
 			$Page = Page::instance();
-			$Page->Top .= h::{'.cherrytea-title h1'}(
+			$Page->Top .= h::{'cherrytea-title h1'}(
 				'Блог'
 			);
 		}
@@ -41,7 +41,7 @@ Event::instance()
 		'Blogs/post',
 		function () {
 			$Page = Page::instance();
-			$Page->Top .= h::{'.cherrytea-title h1'}(
+			$Page->Top .= h::{'cherrytea-title h1'}(
 				'Блог'
 			);
 		}
