@@ -12,6 +12,6 @@ use
 Event::instance()->on(
 	'System/Page/pre_display',
 	function () {
-		Meta::instance()->image('/components/plugins/includes/img/logo.png');
+		Meta::instance()->image('/components/plugins/CherryTea_common/includes/img/logo.png');
 	}
 );
