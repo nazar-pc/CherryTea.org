@@ -10,7 +10,7 @@ use
 	cs\Event,
 	cs\Page,
 	cs\Route,
-	cs\modules\Static_pages\Static_pages;
+	cs\modules\Static_pages\Pages;
 Event::instance()
 	->on(
 		'System/Index/construct',
@@ -18,7 +18,7 @@ Event::instance()
 			if (admin_path() || current_module() !== 'Static_pages') {
 				return;
 			}
-			$static_page = Static_pages::instance()->get(
+			$static_page = Pages::instance()->get(
 				Route::instance()->ids[0]
 			);
 			$Page = Page::instance();
