@@ -55,4 +55,10 @@ Event::instance()
 				$post['title']
 			);
 		}
+	)
+	->on(
+		'System/Page/pre_display',
+		function () {
+			Page::instance()->post_Body .= "<script src=\"//yastatic.net/share/share.js\"></script>\n";
+		}
 	);

@@ -1,0 +1,26 @@
+<polymer-element name="cs-blogs-post" extends="cs-blogs-post">
+	<template>
+		<template if="{{can_edit}}">
+			<p>
+				<template if="{{can_edit}}">
+					<a class="uk-button" data-uk-tooltip="{animation:true,delay:200}" href="/Blogs/edit_post/{{jsonld.id}}" title="{{edit_text}}">
+						<span class="uk-icon-pencil"></span>
+					</a>
+				</template>
+				<template if="{{can_delete}}">
+					<a class="uk-button" data-uk-tooltip="{animation:true,delay:200}" href="/admin/Blogs/delete_post/{{jsonld.id}}" title="{{delete_text}}">
+						<span class="uk-icon-trash-o"></span>
+					</a>
+				</template>
+			</p>
+		</template>
+		<div id="content"></div>
+		<footer horizontal layout center>
+			<time>{{date}}</time>
+			<div flex></div>
+			<div>Розказати друзям:</div>
+			<div id="social"></div>
+		</footer>
+	</template>
+	<script src="script.js"></script>
+</polymer-element>

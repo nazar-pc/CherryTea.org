@@ -1,0 +1,54 @@
+/**
+ * @package   Blogs cherrytea
+ * @category  plugins
+ * @author    Nazar Mokrynskyi <nazar@mokrynskyi.com>
+ * @copyright Copyright (c) 2015, Nazar Mokrynskyi
+ * @license   MIT License, see license.txt
+ */
+
+[is=cs-blogs-post]::shadow {
+	#content {
+		a {
+			color : #dc6c60;
+
+			&:hover {
+				color : #ae474f;
+			}
+		}
+	}
+
+	footer {
+		color       : #9a9ea1;
+		height      : 38px;
+		line-height : 38px;
+		margin-top  : 30px;
+
+		.b-share {
+			height : 38px;
+
+			a {
+				height      : 38px;
+				margin-left : 5px;
+				padding     : 0 !important;
+			}
+
+			&-icon {
+
+				background         : url(../img/social.png) 0 0 no-repeat;
+				height             : 38px;
+				opacity            : .5;
+				-webkit-transition : opacity .3s;
+				transition         : opacity .3s;
+				width              : 38px;
+
+				&_twitter {
+					background-position : -38px 0;
+				}
+
+				&:hover {
+					opacity : 1;
+				}
+			}
+		}
+	}
+}
