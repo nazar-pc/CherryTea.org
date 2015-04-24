@@ -60,7 +60,6 @@ class Route {
 	 */
 	protected function construct () {
 		$Config = Config::instance();
-		$L      = Language::instance();
 		/**
 		 * @var _SERVER $_SERVER
 		 */
@@ -89,7 +88,7 @@ class Route {
 		 */
 		if ($this->mirror_index === -1) {
 			code_header(400);
-			trigger_error($L->mirror_not_allowed, E_USER_ERROR);
+			trigger_error("Mirror $_SERVER->host not allowed", E_USER_ERROR);
 			throw new \ExitException;
 		}
 		/**
