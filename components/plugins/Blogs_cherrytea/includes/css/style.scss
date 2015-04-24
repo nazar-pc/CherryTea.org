@@ -15,6 +15,25 @@
 				color : #ae474f;
 			}
 		}
+
+		blockquote {
+			border-left  : none;
+			font-size    : inherit;
+			margin       : 25px 0;
+			padding-left : 70px;
+			position     : relative;
+			text-align   : right;
+
+			&:before {
+				background : url(../img/quotes.png);
+				content    : '';
+				display    : block;
+				height     : 43px;
+				left       : 0;
+				position   : absolute;
+				width      : 43px;
+			}
+		}
 	}
 
 	footer {
