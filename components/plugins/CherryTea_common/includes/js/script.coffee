@@ -10,5 +10,5 @@ cs.cherrytea.popup = ->
 	$.cs.simple_modal(
 		"<cherrytea-popup></cherrytea-popup>"
 		true
-		470
+		430
 	)
