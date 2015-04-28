@@ -44,39 +44,6 @@
 	}
 }
 
-[is=cs-blogs-posts-post]::shadow {
-	.image {
-		background-size : cover;
-		border-radius   : 50%;
-		height          : 106px;
-		margin-right    : 30px;
-		width           : 106px;
-	}
-
-	h1 {
-		font-size     : 25px;
-		font-weight   : bold;
-		margin-bottom : 10px;
-	}
-	
-	footer {
-		color : #9a9ea1;
-
-		a {
-			color : #dd6c60 !important;
-
-			&:hover {
-				color : #ae474f !important;
-			}
-
-			& + span {
-				display : inline-block;
-				margin  : 0 10px;
-			}
-		}
-	}
-}
-
 [is=cs-blogs-posts-post] {
 	& + & {
 		&:before {
@@ -86,6 +53,61 @@
 			height     : 2px;
 			margin     : 35px 0;
 			width      : 100%;
+		}
+	}
+
+	&::shadow {
+		.image {
+			background-size : cover;
+			border-radius   : 50%;
+			height          : 106px;
+			margin-right    : 30px;
+			width           : 106px;
+		}
+
+		h1 {
+			font-size     : 25px;
+			font-weight   : bold;
+			margin-bottom : 10px;
+		}
+
+		footer {
+			color : #9a9ea1;
+
+			a {
+				color : #dd6c60 !important;
+
+				&:hover {
+					color : #ae474f !important;
+				}
+
+				& + span {
+					display : inline-block;
+					margin  : 0 10px;
+				}
+			}
+		}
+	}
+}
+
+[is=cs-blogs-posts] + div {
+	.uk-button {
+		background   : #ffffff;
+		border-color : #f7f7f7;
+		padding      : 3px 14px;
+
+		&:hover {
+			background   : #ffd46f;
+			border-color : #ffd46f;
+			color        : #fff1f0;
+		}
+	}
+
+	.uk-button-primary {
+		&,
+		&:hover {
+			background   : #ffd46f !important;
+			border-color : #ffd46f !important;
 		}
 	}
 }
