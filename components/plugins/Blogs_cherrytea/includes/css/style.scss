@@ -44,8 +44,8 @@
 	}
 }
 
-[is=cs-blogs-posts-post] {
-	& + & {
+html /deep/ [is=cs-blogs-posts-post] {
+	&:nth-of-type(n+2) {
 		&:before {
 			background : #f7f7f7;
 			display    : block;
@@ -58,11 +58,16 @@
 
 	&::shadow {
 		.image {
-			background-size : cover;
-			border-radius   : 50%;
-			height          : 106px;
-			margin-right    : 30px;
-			width           : 106px;
+			min-width : 136px;
+
+			a {
+				background-size : cover;
+				border-radius   : 50%;
+				display         : block;
+				height          : 106px;
+				margin-right    : 30px;
+				width           : 106px;
+			}
 		}
 
 		h1 {
