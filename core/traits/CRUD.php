@@ -108,6 +108,9 @@ trait CRUD {
 							$argument = $allowed_arguments[0];
 						}
 						break;
+					case 'json':
+						$argument = _json_encode($argument);
+						break;
 				}
 				/**
 				 * If field is multilingual - handle multilingual storing of value automatically
@@ -169,7 +172,7 @@ trait CRUD {
 		$columns = "`".implode("`,`", array_keys($insert_id !== false ? $data_model : array_slice($data_model, 1)))."`";
 		$values  = implode(',', array_fill(0, count($arguments), "'%s'"));
 		$return  = $this->db_prime()->q(
-			"INSERT INTO `$table`
+			"INSERT IGNORE INTO `$table`
 				(
 					$columns
 				) VALUES (
@@ -177,11 +180,14 @@ trait CRUD {
 				)",
 			$arguments
 		);
-		if (!$return) {
+		$id      = $insert_id !== false ? $insert_id : $this->db_prime()->id();
+		/**
+		 * Id might be 0 if insertion failed or if we insert duplicate entry (which is fine since we use 'INSERT IGNORE'
+		 */
+		if (!$return || $id === 0) {
 			return false;
 		}
-		$id = $insert_id !== false ? $insert_id : $this->db_prime()->id();
-		$this->update_files_tags($id, [], $arguments);
+		$this->find_update_files_tags($id, [], $arguments);
 		/**
 		 * If on creation request without specified primary key and multilingual fields present - update needed
 		 * after creation (there is no id before creation)
@@ -243,16 +249,18 @@ trait CRUD {
 				$id
 			]
 		) ?: false;
-		/**
-		 * If there are multilingual fields - handle multilingual getting of fields automatically
-		 */
-		/** @noinspection NotOptimalIfConditionsInspection */
-		if ($data && $this->is_multilingual()) {
-			/** @noinspection ForeachOnArrayComponentsInspection */
-			foreach (array_keys($this->data_model) as $field) {
-				if (strpos($this->data_model[$field], 'ml:') === 0) {
-					$data[$field] = Text::instance()->process($this->cdb(), $data[$field], true);
-				}
+		foreach (array_keys($this->data_model) as $field) {
+			/**
+			 * Handle multilingual fields automatically
+			 */
+			if (strpos($this->data_model[$field], 'ml:') === 0) {
+				$data[$field] = Text::instance()->process($this->cdb(), $data[$field], true);
+			}
+			/**
+			 * Decode JSON fields
+			 */
+			if (in_array($this->data_model[$field], ['json', 'ml:json'])) {
+				$data[$field] = _json_decode($data[$field]);
 			}
 		}
 		return $data;
@@ -294,10 +302,10 @@ trait CRUD {
 	 */
 	private function update_internal ($table, $data_model, $arguments, $files_update = true) {
 		$id = array_shift($arguments);
-		self::crud_arguments_preparation(array_slice($data_model, 1), $arguments, $id);
 		if ($files_update) {
 			$data_before = $this->read_internal($table, $data_model, $id);
 		}
+		self::crud_arguments_preparation(array_slice($data_model, 1), $arguments, $id);
 		$columns      = implode(
 			',',
 			array_map(
@@ -321,7 +329,7 @@ trait CRUD {
 		}
 		if ($files_update) {
 			/** @noinspection PhpUndefinedVariableInspection */
-			$this->update_files_tags($id, $data_before, $arguments);
+			$this->find_update_files_tags($id, $data_before, func_get_args()[2]);
 		}
 		return true;
 	}
@@ -330,15 +338,47 @@ trait CRUD {
 	 * @param int[]|string[] $data_before
 	 * @param int[]|string[] $data_after
 	 */
-	private function update_files_tags ($id, $data_before, $data_after) {
+	private function find_update_files_tags ($id, $data_before, $data_after) {
 		if (!$this->with_files_support()) {
 			return;
 		}
-		$prefix    = $this->data_model_files_tag_prefix;
-		$clang     = Language::instance()->clang;
-		$tag       = "$prefix/$id/$clang";
-		$old_files = $this->find_urls($data_before ?: []);
-		$new_files = $this->find_urls($data_after ?: []);
+		$prefix = $this->data_model_files_tag_prefix;
+		$clang  = Language::instance()->clang;
+		$this->update_files_tags(
+			"$prefix/$id/$clang",
+			$this->find_urls($data_before ?: []),
+			$this->find_urls($data_after ?: [])
+		);
+	}
+	/**
+	 * Find URLs (any actually) in attributes values (wrapped with `"`, other quotes are not supported) or if field itself is URL
+	 *
+	 * @param string[] $data
+	 *
+	 * @return string[]
+	 */
+	protected function find_urls ($data) {
+		/**
+		 * At first we search URLs among attributes values, then whether some field looks like URL itself
+		 */
+		return array_merge(
+			preg_match_all('/"((http[s]?:)?\/\/.+)"/Uims', implode(' ', $data), $files)
+				? array_unique($files[1])
+				: [],
+			array_filter(
+				$data,
+				function ($data) {
+					return preg_match('/^(http[s]?:)?\/\/.+$/Uims', $data);
+				}
+			)
+		);
+	}
+	/**
+	 * @param string   $tag
+	 * @param string[] $old_files
+	 * @param string[] $new_files
+	 */
+	protected function update_files_tags ($tag, $old_files, $new_files) {
 		if ($old_files || $new_files) {
 			foreach (array_diff($old_files, $new_files) as $file) {
 				Event::instance()->fire(
@@ -359,18 +399,6 @@ trait CRUD {
 				);
 			}
 		}
-	}
-	/**
-	 * Find urls (any actually) in attributes values (wrapped with `"`, other quotes are not supported)
-	 *
-	 * @param string[] $data
-	 *
-	 * @return string[]
-	 */
-	private function find_urls ($data) {
-		return preg_match_all('/"(http[s]?:\/\/.+)"/Uims', implode(' ', $data), $files)
-			? array_unique($files[1])
-			: [];
 	}
 	/**
 	 * @deprecated

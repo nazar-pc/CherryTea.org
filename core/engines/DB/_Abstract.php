@@ -332,7 +332,7 @@ abstract class _Abstract {
 	 * @param bool         $array   If <b>true</b> returns array of associative arrays of all fetched rows
 	 * @param bool         $indexed If <b>false</b> - associative array will be returned
 	 *
-	 * @return false|string
+	 * @return false|int|string
 	 */
 	function qfs ($query, $array = false, $indexed = false) {
 		list($query, $params) = $this->q_prepare($query);
@@ -349,7 +349,7 @@ abstract class _Abstract {
 	 * @param array|string $query   SQL query string, or you can put all parameters, that ::q() function can accept in form of array
 	 * @param bool         $indexed If <b>false</b> - associative array will be returned
 	 *
-	 * @return false|string[]
+	 * @return false|int[]|string[]
 	 */
 	function qfas ($query, $indexed = false) {
 		list($query, $params) = $this->q_prepare($query);
@@ -409,14 +409,11 @@ abstract class _Abstract {
 				return false;
 			}
 			$query[1] .= str_repeat(",$query[1]", count($params) - 1);
-			$query   = $query[0].'VALUES'.$query[1].$query[2];
-			$params_ = [];
-			foreach ($params as $p) {
-				/** @noinspection SlowArrayOperationsInLoopInspection */
-				$params_ = array_merge($params_, (array)$p);
-			}
-			unset($p);
-			return (bool)$this->q($query, $params_);
+			$query = $query[0].'VALUES'.$query[1].$query[2];
+			return (bool)$this->q(
+				$query,
+				call_user_func_array('array_merge', _array($params))
+			);
 		} else {
 			$result = true;
 			foreach ($params as $p) {
