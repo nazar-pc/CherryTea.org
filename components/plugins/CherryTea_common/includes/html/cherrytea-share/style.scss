@@ -1,0 +1,35 @@
+/**
+ * @package   CherryTea common
+ * @category  modules
+ * @author    Nazar Mokrynskyi <nazar@mokrynskyi.com>
+ * @copyright Copyright (c) 2015, Nazar Mokrynskyi
+ * @license   MIT License, see license.txt
+ */
+.b-share {
+	height : 38px;
+
+	a {
+		float       : left;
+		height      : 38px;
+		margin-left : 5px;
+		padding     : 0 !important;
+	}
+
+	&-icon {
+		background         : url(share.png) 0 0 no-repeat;
+		display            : block;
+		height             : 38px;
+		opacity            : .5;
+		-webkit-transition : opacity .3s;
+		transition         : opacity .3s;
+		width              : 38px;
+
+		&_twitter {
+			background-position : -38px 0;
+		}
+
+		&:hover {
+			opacity : 1;
+		}
+	}
+}
