@@ -43,3 +43,49 @@
 		margin-top  : 30px;
 	}
 }
+
+[is=cs-blogs-posts-post]::shadow {
+	.image {
+		background-size : cover;
+		border-radius   : 50%;
+		height          : 106px;
+		margin-right    : 30px;
+		width           : 106px;
+	}
+
+	h1 {
+		font-size     : 25px;
+		font-weight   : bold;
+		margin-bottom : 10px;
+	}
+	
+	footer {
+		color : #9a9ea1;
+
+		a {
+			color : #dd6c60 !important;
+
+			&:hover {
+				color : #ae474f !important;
+			}
+
+			& + span {
+				display : inline-block;
+				margin  : 0 10px;
+			}
+		}
+	}
+}
+
+[is=cs-blogs-posts-post] {
+	& + & {
+		&:before {
+			background : #f7f7f7;
+			display    : block;
+			content    : '';
+			height     : 2px;
+			margin     : 35px 0;
+			width      : 100%;
+		}
+	}
+}

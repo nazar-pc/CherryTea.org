@@ -1,0 +1,23 @@
+<polymer-element name="cs-blogs-posts-post" extends="cs-blogs-posts-post">
+	<template>
+		<article horizontal layout>
+			<section>
+				<a href="{{post.url}}">
+					<div class="image" style="background-image: url({{post.image[0]}});"></div>
+				</a>
+			</section>
+			<section vertical layout>
+				<a href="{{post.url}}">
+					<h1>{{post.title}}</h1>
+				</a>
+				<div id="short_content"></div>
+				<footer>
+					<a href="{{post.url}}">Читати далі</a>
+					<span> • </span>
+					{{date}}
+				</footer>
+			</section>
+		</article>
+	</template>
+	<script src="script.js"></script>
+</polymer-element>
