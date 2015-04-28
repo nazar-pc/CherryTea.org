@@ -10,7 +10,7 @@ use
 	cs\Event,
 	cs\Page,
 	cs\Route,
-	cs\modules\Blogs\Blogs;
+	cs\modules\Blogs\Posts;
 Event::instance()
 	->on(
 		'Blogs/latest_posts',
@@ -46,7 +46,7 @@ Event::instance()
 			$path = array_pop($path);
 			$id   = explode(':', $path);
 			$id   = array_pop($id);
-			$post = Blogs::instance()->get($id);
+			$post = Posts::instance()->get($id);
 			if (!$post) {
 				return;
 			}
