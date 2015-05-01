@@ -11,5 +11,5 @@
 	"db_support"  : [
 		"MySQLi"
 	],
-	"require"     : "Cherrytea_common"
+	"require"     : "CherryTea_common"
 }
