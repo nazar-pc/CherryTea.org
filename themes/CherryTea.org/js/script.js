@@ -13,7 +13,8 @@
 
   $(function() {
     return $(this.querySelector('.cherrytea-i-want-to-give-things-side-block form')).submit(function() {
-      return cs.cherrytea.popup();
+      cs.form.send(this);
+      return false;
     });
   });
 

@@ -1,0 +1,15 @@
+{
+	"package"     : "Form",
+	"category"    : "modules",
+	"version"     : "1.0",
+	"description" : "Form for CherryTea.org",
+	"author"      : "Nazar Mokrynskyi",
+	"license"     : "MIT License",
+	"db"          : [
+		"form"
+	],
+	"db_support"  : [
+		"MySQLi"
+	],
+	"require"     : "Cherrytea_common"
+}

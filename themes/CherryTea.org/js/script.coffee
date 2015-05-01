@@ -7,4 +7,5 @@
 ###
 $ ->
 	$(@querySelector('.cherrytea-i-want-to-give-things-side-block form')).submit ->
-		cs.cherrytea.popup()
+		cs.form.send(@)
+		return false

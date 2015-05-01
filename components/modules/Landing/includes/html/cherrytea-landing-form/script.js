@@ -15,7 +15,8 @@
     ready: function() {
       return $(function() {
         return $(this.querySelector('.cherrytea-landing-form form')).submit(function() {
-          return cs.cherrytea.popup();
+          cs.form.send(this);
+          return false;
         });
       });
     }

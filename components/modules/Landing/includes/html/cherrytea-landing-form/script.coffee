@@ -9,5 +9,6 @@ Polymer(
 	ready		: ->
 		$ ->
 			$(@querySelector('.cherrytea-landing-form form')).submit ->
-				cs.cherrytea.popup()
+				cs.form.send(@)
+				return false
 );
